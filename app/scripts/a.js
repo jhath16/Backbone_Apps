@@ -10,7 +10,7 @@ var BlogPostView = Backbone.View.extend({
 
   template: _.template($('#input-template').text()),
 
-  render: function() {
+  render: function(e) {
     this.$el.html(this.template());
     $('.container').append(this.el);
   },
@@ -19,10 +19,13 @@ var BlogPostView = Backbone.View.extend({
     'click button' : 'submit'
   },
 
-  submit: function () {
+  submit: function (e) {
+    e.preventDefault();
     var title = this.$('.title').val();
     var body = this.$('.body').val();
     this.model.save({ title:title , body:body })
+    this.$('.title')[0].value = '';
+    this.$('.body')[0].value = '';
   }
 })
 
