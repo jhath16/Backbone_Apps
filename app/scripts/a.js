@@ -1,0 +1,31 @@
+var BlogModel = Backbone.Model.extend({
+  url:'http://tiny-pizza-server.herokuapp.com/collections/posts'
+});
+
+var BlogPostView = Backbone.View.extend({
+  initialize:function() {
+    console.log('View created');
+    this.render();
+  },
+
+  template: _.template($('#input-template').text()),
+
+  render: function() {
+    this.$el.html(this.template());
+    $('.container').append(this.el);
+  },
+
+  events: {
+    'click button' : 'submit'
+  },
+
+  submit: function () {
+    var title = this.$('.title').val();
+    var body = this.$('.body').val();
+    this.model.save({ title:title , body:body })
+  }
+})
+
+$(document).ready(function() {
+var blogPostView = new BlogPostView({model: new BlogModel});
+})
