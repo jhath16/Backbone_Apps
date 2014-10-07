@@ -9,6 +9,7 @@ input.title {
   outline:none;
   border:1px solid black;
   display:block;
+  width:250px;
 
   &:focus {
     border:1px solid blue;
@@ -20,6 +21,7 @@ textarea.body {
   outline:none;
   height:100px;
   border:1px solid black;
+  width:250px;
 
   &:focus {
     border:1px solid blue;
@@ -28,6 +30,23 @@ textarea.body {
 }
 //Assignment A//
 
+// --------------------------------------------------------------------
+
 //Assignment B//
+h1 {
+  font-size:2em;
+  margin-bottom:10px;
+}
+
+.inputs {
+  display:block;
+  margin:18px auto;
+  width:250px
+}
+
+.form-container {
+  text-align:center;
+}
+
 
 //Assignment B//
