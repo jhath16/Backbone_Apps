@@ -30,5 +30,5 @@ var BlogPostView = Backbone.View.extend({
 })
 
 $(document).ready(function() {
-var blogPostView = new BlogPostView({model: new BlogModel});
+var blogPostView = new BlogPostView({model: new BlogModel()});
 })

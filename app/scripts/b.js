@@ -5,16 +5,16 @@ var FormModel = Backbone.Model.extend({
 
   validate: function (attributes) {
     if (!attributes.first_name) {
-      return 'You must have a first name';
+      return {prop:"first_name",message:'You must have a first name'};
     };
     if (!attributes.last_name) {
-      return 'You must have a last name';
+      return {prop:"last_name", message:'You must have a last name'};
     };
     if(!attributes.address) {
-      return 'You must enter an address';
+      return {prop:'address', message:'You must enter an address'};
     };
     if(typeof +attributes.phone_number != 'number' || attributes.phone_number.length !=10 ) {
-      return 'You must enter 10 digits or use all numbers';
+      return {prop:'phone_number', message:'You must enter 10 digits and use all numbers'};
     };
   }
 });
@@ -46,7 +46,9 @@ var FormView = Backbone.View.extend({
   },
 
   invalidInput:function(model,error){
-    alert(error);
+    $('input, textarea').removeClass('invalid');
+    $('[name=' + error.prop +']').addClass('invalid');
+    alert(error.message);
   }
 });
 
